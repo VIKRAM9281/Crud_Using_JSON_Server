@@ -22,7 +22,7 @@ const CreateEmployee = () => {
   };
   console.log(empobj);
 
-  axios.post("http://localhost:7397/EmployeeData", empobj)
+  axios.post("http://localhost:5000/EmployeeData", JSON.stringify(empobj))
     .then((res) => {
       console.log(res.data); // Assuming the response contains useful data
       alert("Employee added successfully");

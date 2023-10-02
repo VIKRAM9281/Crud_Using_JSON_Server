@@ -7,7 +7,7 @@ const [data,setData]=useState([])
 useEffect(() => {
   const handleGetData = async () => {
     try {
-      const response = await axios.get("http://localhost:7397/EmployeeData");
+      const response = await axios.get("http://localhost:5000/EmployeeData");
       const resData = response.data; // Corrected from response.JSON() to response.data
       setData(resData);
     } catch (error) {
@@ -20,7 +20,7 @@ useEffect(() => {
 
 
   const DeleteData=()=>{
-    const empData=axios.delete(`http://localhost:7397/EmployeeData`)
+    const empData=axios.delete(`http://localhost:5000/EmployeeData`)
     const Data1=empData.json()
 
   }
@@ -47,7 +47,7 @@ useEffect(() => {
           {
             data.map((item,ind)=>{
               return(
-                <tr>
+                <tr key={ind}>
                   <td>{item.Name}</td>
                   <td>{item.Email}</td>
                   <td>{item.Address}</td>
